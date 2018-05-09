@@ -10,7 +10,7 @@ Page({
     status: '1',
     lists: [],
     curLists: [],
-    editStatu: false,
+    editStatu: false,//是否在修改的状态
     editIndex: 0,
     delBtnWidth: 120, // 删除按钮宽度单位（rpx）
     motto: 'Hello World',
@@ -175,7 +175,7 @@ Page({
     wx.setStorage({
       key: "lists",
       data: temp
-    })
+    });
     wx.showToast({
       title: '修改成功!',
       icon: 'success',

@@ -1,0 +1,22 @@
+<view class="container">
+  <view>
+    <image class="SyncImg" src="../../src/img/clouds_night.png" background-size="cover"></image>
+  </view>
+  <view class="userinfo">
+    <block>
+      <open-data class="userinfo-avatar" type="userAvatarUrl"></open-data>
+      <open-data class="userinfo-nickname" type="userNickName" open-gid="xxxxxx"></open-data>
+      <open-data class="userinfo-nickname" type="userCountry" lang="zh_CN"></open-data>
+      <open-data class="userinfo-nickname" type="userGender" lang="zh_CN"></open-data>
+      <open-data class="userinfo-nickname" type="userProvince" lang="zh_CN"></open-data>
+      <open-data class="userinfo-nickname" type="userCity" lang="zh_CN"></open-data>
+      <button class="weui-btn mini-btn" type="default" size="mini" bindtap="GetSysInfo">了解一下？</button>
+      <text class="userinfo-nickname">{{Line1}}</text>
+      <text class="userinfo-nickname">{{Line2}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <button class="weui-btn mini-btn" type="primary" bindtap="UpDataRequest" size="mini" disabled="{{requesting}}">上传</button>
+    <button class="weui-btn mini-btn" type="primary" bindtap="DownDataRequest" size="mini" disabled="{{requesting}}">下载</button>
+  </view>
+</view>

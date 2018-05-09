@@ -19,7 +19,7 @@
       <button class="mini-btn" type="primary" size="mini" bindtap="addTodoShow">+ 添加</button>
     </view>
   </view>
-  <scroll-view class="lists" scroll-y>
+  <scroll-view class="lists" scroll-y enable-back-to-top = true>
     <block wx:if="{{curLists.length < 1}}">
       <view class="nodata">暂无数据</view>
     </block>
@@ -44,4 +44,7 @@
       </view>
     </view>
   </view>
+<navigator class="setting_button" url="/pages/SyncData/SyncData">
+    <image class="cloud_image" src="../../src/img/hp_balloons.png"></image>
+</navigator>
 </view>
