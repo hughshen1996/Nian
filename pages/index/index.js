@@ -10,10 +10,12 @@ Page({
     status: '1',
     lists: [],
     curLists: [],
-    editStatu: false,//是否在修改的状态
+    editStatu: false,//是否在修改todo的状态
+    edittipStatu: false,//是否在修改提示的状态
     editIndex: 0,
     delBtnWidth: 120, // 删除按钮宽度单位（rpx）
     motto: 'Hello World',
+    tip: '左滑删除、长按编辑、气球同步、长按我试试',//头像下面提示语
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
@@ -75,6 +77,7 @@ Page({
   addTodoHide: function () {
     this.setData({
       editStatu: false,
+      edittipStatu: false,
       addShow: false,
       focus: false,
       addText: ''
@@ -141,6 +144,14 @@ Page({
       curLists: this.data.lists.filter(item => +item.status === (st - 2))
     })
   },
+  editTip: function () {
+    this.setData({
+      edittipStatu: true,
+      addShow: true,
+      focus: true,
+      addText: this.data.tip
+    })
+  },
   editData: function (e) {
     var item = e.currentTarget.dataset.item
     var temp = this.data.lists
@@ -155,6 +166,26 @@ Page({
         this.data.editIndex = index
       }
     })
+  },
+  editTipInfo: function () {
+    if (!this.data.addText.trim()) {
+      wx.showToast({
+        title: '内容不能为空!',
+        icon: 'none',
+        duration: 1000
+      })
+      return
+    }
+    this.setData({
+      edittipStatu: false,
+      tip: this.data.addText
+    })
+    this.addTodoHide()
+    wx.showToast({
+      title: '修改成功!',
+      icon: 'success',
+      duration: 1000
+    });
   },
   editTodo: function () {
     if (!this.data.addText.trim()) {

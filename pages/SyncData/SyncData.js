@@ -6,8 +6,8 @@ Page({
     Upurl: 'https://febaug.cn/UpData',
     Downurl: 'https://febaug.cn/DownData',
     requesting: false,
-    Line1: 'ヾ(◍•◡•◍)ﾉﾞ',
-    Line2: '',
+    Line1: '上传：数据将保存到云端，可跨设备同步。',
+    Line2: '下载：同步最后一次上传数据，小心覆盖。',
   },
   GetSysInfo() {
     wx.getSystemInfo({
@@ -57,7 +57,7 @@ Page({
     if (tmpJson.list.length === 0) {
       this.setData({
         requesting: false,
-        Line1: '｡◕ᴗ◕｡',
+        Line1: '(⊙o⊙)…',
       });
       wx.showToast({
         title: '你有没有数据要上传，心里没点B数嘛！',
@@ -78,7 +78,7 @@ Page({
         if (+res.statusCode == 200) {
           this.setData({
             status: 'success',
-            Line1: '服务器响应成功,：' + res.data,
+            Line1: '服务器响应成功,' + res.data,
             Line2: '同步时间：' + St,
           });
         }

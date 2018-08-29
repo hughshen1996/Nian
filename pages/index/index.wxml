@@ -8,7 +8,7 @@
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
   </view>
-  <view class="saying">生活不只是眼前的苟且，还有诗和远方的田野。</view>
+  <view class="saying" bindlongtap='editTip'>{{tip}}</view>
   <view class="titleBar">
     <view class="status">
       <text class="{{status === '1'?'active':''}}" data-status="1" bindtap="showStatus">全部</text>
@@ -36,10 +36,11 @@
   </scroll-view>
   <view class="addForm {{addShow?'':'hide'}}">
     <view class="addForm-div">
-      <input class="weui-input" placeholder="你最好全神贯注，因为我会全力以赴。" value="{{addText}}" bindinput="setInput" focus="{{focus}}" />
+      <input class="weui-input" placeholder="我要......" value="{{addText}}" bindinput="setInput" focus="{{focus}}" />
       <view class="addForm-btn">
-        <button class="weui-btn mini-btn" type="primary" bindtap="addTodo" size="mini" hidden="{{editStatu}}">添加</button>
+        <button class="weui-btn mini-btn" type="primary" bindtap="addTodo" size="mini" hidden="{{editStatu || edittipStatu}}">添加</button>
         <button class="weui-btn mini-btn" type="primary" bindtap="editTodo" size="mini" hidden="{{!editStatu}}">修改</button>
+        <button class="weui-btn mini-btn" type="primary" bindtap="editTipInfo" size="mini" hidden="{{!edittipStatu}}">修改</button>
         <button class="weui-btn mini-btn" type="primary" bindtap="addTodoHide" size="mini" plain="true">取消</button>
       </view>
     </view>
